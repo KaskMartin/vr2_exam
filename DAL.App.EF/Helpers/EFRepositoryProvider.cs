@@ -26,12 +26,37 @@ namespace DAL.App.EF.Helpers
 
         public IRepository<TEntity> GetEntityRepository<TEntity>() where TEntity : class
         {
-            throw new NotImplementedException();
+            return GetOrMakeRepository<IRepository<TEntity>>
+                (_repositoryFactory.GetStandardRepositoryFactory<TEntity>());
+
         }
 
-        public TRepository GetCustomRepository<TRepository>() where TRepository : class
+        private TRepository GetOrMakeRepository<TRepository>(Func<IDataContext, object> factory)
+            where TRepository : class
         {
-            throw new NotImplementedException();
+            if (_repositoryCache.TryGetValue(typeof(TRepository), out var repo))
+            {
+                return (TRepository)repo;
+            }
+
+            if (factory == null)
+            {
+                throw new ArgumentNullException($"No factory found for type {typeof(TRepository).Name}");
+            }
+
+            repo = factory(_applicationDbContext);
+
+            _repositoryCache.Add(typeof(TRepository), repo);
+
+            return (TRepository)repo;
+
+        }
+
+        public TRepository GetCustomRepository<TRepository>()
+            where TRepository : class
+        {
+            return GetOrMakeRepository<TRepository>(
+                _repositoryFactory.GetCustomRepositoryFactory<TRepository>());
         }
     }
 }
