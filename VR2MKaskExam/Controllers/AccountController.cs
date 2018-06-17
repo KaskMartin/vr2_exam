@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using VR2MKaskExam.Models;
 using VR2MKaskExam.Models.AccountViewModels;
 using VR2MKaskExam.Services;
+using Domain;
 
 namespace VR2MKaskExam.Controllers
 {

@@ -6,6 +6,7 @@ using BL.Factories;
 using BL.Services;
 using DAL.App.EF;
 using DAL.App.EF.Helpers;
+using DAL.App.Interfaces;
 using DAL.App.Interfaces.Helpers;
 using DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -16,7 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VR2MKaskExam.Models;
 using VR2MKaskExam.Services;
-using ApplicationDbContext = VR2MKaskExam.Data.ApplicationDbContext;
+using Domain;
 
 namespace VR2MKaskExam
 {
@@ -49,7 +50,7 @@ namespace VR2MKaskExam
             services.AddSingleton<IRepositoryFactory, EFRepositoryFactory>();
             services.AddScoped<IRepositoryProvider, EFRepositoryProvider>();
             services.AddScoped<IDataContext, ApplicationDbContext>();
-            services.AddScoped<IUnitOfWork, EFAppUnitOfWork>();
+            services.AddScoped<IAppUnitOfWork, EFAppUnitOfWork>();
 
             services.AddMvc();
         }

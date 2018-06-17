@@ -12,10 +12,10 @@ namespace BL.Services
 {
     public class AnswerService : IAnswerService
     {
-        private readonly EFAppUnitOfWork _uow;
+        private readonly IAppUnitOfWork _uow;
         private readonly IAnswerFactory _answerFactory;
 
-        public AnswerService(EFAppUnitOfWork uow, IAnswerFactory answerFactory)
+        public AnswerService(IAppUnitOfWork uow, IAnswerFactory answerFactory)
         {
             _uow = uow;
             _answerFactory = answerFactory;

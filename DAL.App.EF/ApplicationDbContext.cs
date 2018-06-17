@@ -121,8 +121,5 @@ namespace DAL.App.EF
                 }
             }
         }
-        protected ApplicationDbContext()
-        {
-        }
     }
 }

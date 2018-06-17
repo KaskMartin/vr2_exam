@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.App.Interfaces;
 using DAL.App.Interfaces.Helpers;
 using DAL.App.Interfaces.Repositories;
 using DAL.Interfaces;
@@ -10,7 +11,7 @@ using Domain;
 
 namespace DAL.App.EF
 {
-    public class EFAppUnitOfWork : IUnitOfWork
+    public class EFAppUnitOfWork : IAppUnitOfWork
     {
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly IRepositoryProvider _repositoryProvider;

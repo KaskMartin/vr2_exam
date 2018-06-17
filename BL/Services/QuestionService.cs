@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using BL.DTO;
 using BL.Factories;
-using DAL.App.EF;
+using DAL.App.Interfaces;
 using Domain;
 
 namespace BL.Services
 {
     public class QuestionService : IQuestionService
     {
-        private readonly EFAppUnitOfWork _uow;
+        private readonly IAppUnitOfWork _uow;
         private readonly IQuestionFactory _questionFactory;
 
-        public QuestionService(EFAppUnitOfWork uow, IQuestionFactory questionFactory)
+        public QuestionService(IAppUnitOfWork uow, IQuestionFactory questionFactory)
         {
             _uow = uow;
             _questionFactory = questionFactory;

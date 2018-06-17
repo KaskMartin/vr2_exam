@@ -26,7 +26,7 @@ namespace VR2MKaskExam.Controllers.api
         [ProducesResponseType(404)]
         [ProducesResponseType(429)]
         [ProducesResponseType(500)]
-        public IActionResult GetAll()
+        public IActionResult Get()
         {
             return Ok(_questionService.GetAllQuestions());
         }
