@@ -10,7 +10,7 @@ using Domain;
 
 namespace DAL.App.EF
 {
-    class EFAppUnitOfWork : IUnitOfWork
+    public class EFAppUnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly IRepositoryProvider _repositoryProvider;
@@ -27,7 +27,7 @@ namespace DAL.App.EF
 
         public IQuestionRepository Questions => GetCustomRepository<IQuestionRepository>();
         public IAnswerRepository Answers => GetCustomRepository<IAnswerRepository>();
-        public IApplicationUserRepository Users => GetCustomRepository<IApplicationUserRepository>();
+
         public void SaveChanges()
         {
             _applicationDbContext.SaveChanges();

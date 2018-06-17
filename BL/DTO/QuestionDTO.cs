@@ -36,7 +36,7 @@ namespace BL.DTO
             var question = CreateFromDomain(q);
             if (question == null) return null;
 
-            question.Answers = q?.Answers?.Select(AnswerDTO.createFRomDomain).ToList();
+            question.Answers = q?.Answers?.Select(AnswerDTO.createFromDomain).ToList();
             return question;
         }
     }

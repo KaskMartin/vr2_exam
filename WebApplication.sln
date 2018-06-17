@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.App.Interfaces", "DAL.A
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{FA273458-380C-486D-B3E9-59E62B53193B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B24EA103-DBFB-4676-ADFC-EFE0A82DFBE7} = {B24EA103-DBFB-4676-ADFC-EFE0A82DFBE7}
+		{FB53AD44-D8E4-4BD9-AE35-74922E9AE0D0} = {FB53AD44-D8E4-4BD9-AE35-74922E9AE0D0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

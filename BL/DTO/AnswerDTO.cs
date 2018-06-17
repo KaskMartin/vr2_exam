@@ -18,7 +18,7 @@ namespace BL.DTO
         public virtual QuestionDTO Question { get; set; }
         public int QuestionId { get; set; }
 
-        public static AnswerDTO createFRomDomain(Answer a)
+        public static AnswerDTO createFromDomain(Answer a)
         {
             if (a == null) return null;
 
