@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BL.Factories;
+using BL.Services;
+using DAL.App.EF;
+using DAL.App.EF.Helpers;
+using DAL.App.Interfaces.Helpers;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VR2MKaskExam.Data;
 using VR2MKaskExam.Models;
 using VR2MKaskExam.Services;
+using ApplicationDbContext = VR2MKaskExam.Data.ApplicationDbContext;
 
 namespace VR2MKaskExam
 {
@@ -35,6 +41,15 @@ namespace VR2MKaskExam
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IQuestionFactory, QuestionFactory>();
+            services.AddScoped<IAnswerService, AnswerService>();
+            services.AddScoped<IAnswerFactory, AnswerFactory>();
+
+            services.AddSingleton<IRepositoryFactory, EFRepositoryFactory>();
+            services.AddScoped<IRepositoryProvider, EFRepositoryProvider>();
+            services.AddScoped<IDataContext, ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, EFAppUnitOfWork>();
 
             services.AddMvc();
         }

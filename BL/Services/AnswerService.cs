@@ -10,7 +10,7 @@ using Domain;
 
 namespace BL.Services
 {
-    class AnswerService : IAnswerService
+    public class AnswerService : IAnswerService
     {
         private readonly EFAppUnitOfWork _uow;
         private readonly IAnswerFactory _answerFactory;

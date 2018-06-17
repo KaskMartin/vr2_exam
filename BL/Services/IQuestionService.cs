@@ -9,6 +9,7 @@ namespace BL.Services
         IEnumerable<QuestionDTO> SearchQuestionsByTitle(string searhTerm);
         IEnumerable<QuestionDTO> SearchQuestionsByDescription(string searhTerm);
         QuestionDTO GetQuestionById(int qid);
+        QuestionDTO CreateNewQuestion(QuestionDTO qdto);
         void UpdateQuestion(QuestionDTO qdto, int qid);
         void DeleteQuestion(int qid);
         void MakePrivate(int qid);

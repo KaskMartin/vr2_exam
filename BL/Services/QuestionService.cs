@@ -57,6 +57,15 @@ namespace BL.Services
             return _questionFactory.Create(q);
         }
 
+        public QuestionDTO CreateNewQuestion(QuestionDTO qdto)
+        {
+            var newQuestion = _questionFactory.Create(qdto);
+            _uow.Questions.Add(newQuestion);
+            _uow.SaveChanges();
+
+            return _questionFactory.Create(newQuestion);
+        }
+
         public void UpdateQuestion(QuestionDTO updatedQuestion, int qid)
         {
             Question question = _uow.Questions.Find(qid);

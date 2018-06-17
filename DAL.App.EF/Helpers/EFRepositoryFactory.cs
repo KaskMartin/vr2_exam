@@ -10,7 +10,7 @@ using DAL.TaisKoht.EF.Repositories;
 
 namespace DAL.App.EF.Helpers
 {
-    class EFRepositoryFactory : IRepositoryFactory
+    public class EFRepositoryFactory : IRepositoryFactory
     {
         private readonly Dictionary<Type, Func<IDataContext, object>> _customRepositoryFactories
             = GetCustomRepoFactories();
